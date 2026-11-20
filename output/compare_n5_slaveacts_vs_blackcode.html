@@ -1,0 +1,143 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>Text reuse: slaveacts vs. blackcode</title>
+<style>
+ :root { --ink:#1d2433; --muted:#5b6475; --line:#d9dde5; --mark:#ffe08a; --bg:#fbfaf7; }
+ body { font-family: Georgia, "Times New Roman", serif; color: var(--ink); background: var(--bg);
+        max-width: 1200px; margin: 2em auto; padding: 0 1.2em; line-height: 1.55; }
+ h1, h2, h3, .meta, .scores, table, summary, .note { font-family: -apple-system, Helvetica, Arial, sans-serif; }
+ h1 { font-size: 1.5em; margin-bottom: .2em; }
+ .note { color: var(--muted); font-size: .92em; }
+ table { border-collapse: collapse; font-size: .88em; margin: 1em 0 2em; }
+ td, th { border-bottom: 1px solid var(--line); padding: .3em .8em; text-align: left; }
+ td.num { text-align: right; font-variant-numeric: tabular-nums; }
+ section { border-top: 2px solid var(--line); padding-top: 1em; margin-top: 2em; }
+ h2 { font-size: 1.1em; }
+ .scores { font-weight: normal; color: var(--muted); font-size: .85em; margin-left: .6em; }
+ .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4em; }
+ .side { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: .8em 1em; }
+ h3 { font-size: .95em; margin: 0; }
+ .meta { color: var(--muted); font-size: .82em; margin: .2em 0 .6em; }
+ .text { font-size: .98em; }
+ mark { background: var(--mark); padding: 0 .1em; border-radius: 2px; }
+ .gap { color: var(--muted); font-family: Helvetica, Arial, sans-serif; font-size: .8em; }
+ details { margin-top: .6em; font-size: .85em; color: var(--muted); }
+ .phrases { font-family: Menlo, monospace; font-size: .85em; }
+ @media (max-width: 800px) { .pair { grid-template-columns: 1fr; } }
+</style></head><body>
+<h1>Text reuse: slaveacts vs. blackcode</h1>
+<p class="note">9 matched pairs in compare_n5_slaveacts_vs_blackcode.csv; the first 9 are shown,
+best first. <mark>Highlighted</mark> words belong to 5-word phrases the two sections share
+(after enacting clauses and boilerplate were removed).
+Long sections are cut to the highlighted passages with 30 words of context; [&hellip;] marks a cut.</p>
+<table><tr><th>#</th><th>slaveacts section</th><th>blackcode section</th>
+<th>shared phrases</th><th>share</th></tr><tr><td><a href='#p1'>1</a></td><td>sc_1823_act2319_s01</td><td>sc_1865_act4731_s22</td><td class='num'>10</td><td class='num'>0.03</td></tr><tr><td><a href='#p2'>2</a></td><td>sc_1835_act2653_s00</td><td>sc_1865_act4731_s22</td><td class='num'>9</td><td class='num'>0.02</td></tr><tr><td><a href='#p3'>3</a></td><td>sc_1820_act2236_s01</td><td>sc_1865_act4731_s22</td><td class='num'>7</td><td class='num'>0.01</td></tr><tr><td><a href='#p4'>4</a></td><td>sc_1831_act2528_s04</td><td>sc_1865_act4731_s12</td><td class='num'>5</td><td class='num'>0.06</td></tr><tr><td><a href='#p5'>5</a></td><td>sc_1803_act1814_s03</td><td>sc_1865_act4733_s19</td><td class='num'>5</td><td class='num'>0.05</td></tr><tr><td><a href='#p6'>6</a></td><td>sc_1801_act1756_s07</td><td>sc_1865_act4733_s19</td><td class='num'>5</td><td class='num'>0.03</td></tr><tr><td><a href='#p7'>7</a></td><td>sc_1801_act1756_s07</td><td>sc_1865_act4733_s28</td><td class='num'>5</td><td class='num'>0.03</td></tr><tr><td><a href='#p8'>8</a></td><td>sc_1794_act1605_s01</td><td>sc_1865_act4733_s75</td><td class='num'>5</td><td class='num'>0.01</td></tr><tr><td><a href='#p9'>9</a></td><td>sc_1740_act670_s48</td><td>sc_1865_act4732_s32</td><td class='num'>5</td><td class='num'>0.01</td></tr></table>
+
+<section id="p1">
+  <h2>1. 10 shared phrases <span class="scores">share of slaveacts section
+  0.03 · Jaccard 0.02</span></h2>
+  <div class="pair">
+    <div class="side"><h3>sc_1823_act2319_s01</h3><p class="meta">1823</p>
+      <p class="text"><span class="gap">[…]</span> negro or person of colour to migrate into this State, or be brought or introduced into its limits, into this State. under any pretext whatever, by land or by water. <mark>And in case any such</mark> free negro or person of color, (not being a seaman on board of any vessel arriving within this State,) shall migrate into or be introduced into this State, contrary to <span class="gap">[…]</span> court to examine such free negro or person of color, and on conviction, to order him or her to leave the State; and every free negro or person of color, <mark>so ordered to leave the State</mark>, and thereafter remaining longer than fifteen days within the same, <mark>or having left the State</mark> and thereafter returning to the same, upon proof thereof made before any magistrate and three freeholders, and <mark>on conviction thereof, shall be</mark> subjected to be sentenced <mark>to such corporal punishment as the</mark> said magistrate and freeholders shall, in their discretion, <mark>think fit to order. And if</mark>, after the said sentence of punishment, such free negro or person of color shall again remain longer in this State than fifteen days, <mark>or having left the State shall</mark> thereafter return to the same, upon proof thereof before any magistrate and three freeholders, as aforesaid, and on conviction thereof, the said magistrate and freeholders shall the said free negro <span class="gap">[…]</span></p></div>
+    <div class="side"><h3>sc_1865_act4731_s22</h3><p class="meta">1865-12-19 · Some Misdemeanors</p>
+      <p class="meta">An Act to amend the criminal law</p>
+      <p class="text"><span class="gap">[…]</span> the District Court or a Magistrate, in a penalty of one thousand dollars, conditioned for his good behavior, and for his support, if he should become unable to support himself <mark>And in case any such</mark> person shall fail to execute the bond as aforesaid, the District Judge or any Magistrate is hereby authorized and required, upon complaint and due proof thereof, to issue his warrant commanding such person of color to leave the State within ten days thereafter. And if any such person, <mark>so ordered to leave the State</mark>, shall not leave the State within the time prescribed in such warrant, he shall, upon conviction thereof, be liable <mark>to such corporal punishment as the</mark> Court, in its discretion, shall <mark>think fit to order. And if</mark> any such person so convicted and punished shall still remain within the State more than fifteen days after the punishment shall have been inflicted, <mark>or having left the State, shall</mark> return to the same, he shall, upon conviction thereof, be transported beyond the limits of this State for life, or be kept to hard labor, with occasional solitary confinement, for <span class="gap">[…]</span> person of color who shall have been convicted of any infamous offense in any other State or country, shall come or be brought into this State, such person of color, <mark>on conviction thereof, shall be</mark> transported beyond the limits of this State for life, or be kept to hard labor, with occasional solitary confinement, for any period not exceeding fifteen years. Trial for</p></div>
+  </div>
+  <details><summary>The shared phrases</summary><p class="phrases">and in case any such | fit to order and if | having left the state shall | on conviction thereof shall be | or having left the state | ordered to leave the state | so ordered to leave the | such corporal punishment as the | think fit to order and | to such corporal punishment as</p></details>
+</section>
+<section id="p2">
+  <h2>2. 9 shared phrases <span class="scores">share of slaveacts section
+  0.02 · Jaccard 0.01</span></h2>
+  <div class="pair">
+    <div class="side"><h3>sc_1835_act2653_s00</h3><p class="meta">1835</p>
+      <p class="text"><span class="gap">[…]</span> to release him or her on sufficient bail, for any time not exceedf enaUy for not ing fifteen days, at the discretion of the magistrate. of color so bailed, and <mark>ordered to leave the State</mark>, who shall not have left <mark>the State within the time</mark> for which he or she shall have been released on bail, or who, having left the State after conviction as aforesaid, shall return into the same, shall be arrested and <span class="gap">[…]</span> failed to leave the State as aforesaid, or of his or her having returned into the State after having left the same as aforesaid, he or she shall be subjected <mark>to such corporal punishment as</mark> Acts relating to Slaves. A.I). 1835. the said court in their <mark>discretion shall think fit to order. And if</mark>, after said sentence or punishment, such free negro or person of color shall still remain in the State longer than the time allowed, <mark>or having left the State, shall</mark> thereafter return to the same, upon proof and conviction thereof, before a court to be constituted as hereinbefore directed, he or she shall be sold at pubHc sale as a <span class="gap">[…]</span></p></div>
+    <div class="side"><h3>sc_1865_act4731_s22</h3><p class="meta">1865-12-19 · Some Misdemeanors</p>
+      <p class="meta">An Act to amend the criminal law</p>
+      <p class="text"><span class="gap">[…]</span> required, upon complaint and due proof thereof, to issue his warrant commanding such person of color to leave the State within ten days thereafter. And if any such person, so <mark>ordered to leave the State</mark>, shall not leave <mark>the State within the time</mark> prescribed in such warrant, he shall, upon conviction thereof, be liable <mark>to such corporal punishment as</mark> the Court, in its <mark>discretion, shall think fit to order. And if</mark> any such person so convicted and punished shall still remain within the State more than fifteen days after the punishment shall have been inflicted, <mark>or having left the State, shall</mark> return to the same, he shall, upon conviction thereof, be transported beyond the limits of this State for life, or be kept to hard labor, with occasional solitary confinement, for <span class="gap">[…]</span></p></div>
+  </div>
+  <details><summary>The shared phrases</summary><p class="phrases">discretion shall think fit to | fit to order and if | having left the state shall | or having left the state | ordered to leave the state | shall think fit to order | the state within the time | think fit to order and | to such corporal punishment as</p></details>
+</section>
+<section id="p3">
+  <h2>3. 7 shared phrases <span class="scores">share of slaveacts section
+  0.01 · Jaccard 0.01</span></h2>
+  <div class="pair">
+    <div class="side"><h3>sc_1820_act2236_s01</h3><p class="meta">1820</p>
+      <p class="text"><span class="gap">[…]</span> and may be apprehended and carried by any white person, before some justice of the peace of the district or parish where he or she shall be taken ; which justice <mark>is hereby authorized and required</mark> to examine such free negro or mulatto, and to order him or her to leave this State. And every free negro or mulatto <mark>so ordered to leave the State</mark>, and thereafter remaining longer than fifteen days within the same, <mark>or having left the State</mark>, and thereafter returning to this State, (unless it be inconsequence of shipwreck or some other unavoidable accident, or as a seaman on board or belonging to a vessel with which he shall depart, or as a servant to white person travelling into this State,) upon proof thereof, made before any magistrate and three freeholders, and <mark>on conviction thereof, shall be</mark> subjected to a fine of twenty dollars, and in default of the payment thereof, shall be publicly sold, after ten days notice, for a term of time <mark>not exceeding five years ; and if</mark> such free negro, mulatto or mestizo, shall be found in this State after the lapse of ten days after paying such fine, or after such servitude under such sale, he <span class="gap">[…]</span></p></div>
+    <div class="side"><h3>sc_1865_act4731_s22</h3><p class="meta">1865-12-19 · Some Misdemeanors</p>
+      <p class="meta">An Act to amend the criminal law</p>
+      <p class="text"><span class="gap">[…]</span> his support, if he should become unable to support himself And in case any such person shall fail to execute the bond as aforesaid, the District Judge or any Magistrate <mark>is hereby authorized and required</mark>, upon complaint and due proof thereof, to issue his warrant commanding such person of color to leave the State within ten days thereafter. And if any such person, <mark>so ordered to leave the State</mark>, shall not leave the State within the time prescribed in such warrant, he shall, upon conviction thereof, be liable to such corporal punishment as the Court, in its discretion, shall think fit to order. And if any such person so convicted and punished shall still remain within the State more than fifteen days after the punishment shall have been inflicted, <mark>or having left the State</mark>, shall return to the same, he shall, upon conviction thereof, be transported beyond the limits of this State for life, or be kept to hard labor, with occasional solitary confinement, for a period <mark>not exceeding five years. And if</mark> any person of color who shall have been convicted of any infamous offense in any other State or country, shall come or be brought into this State, such person of color, <mark>on conviction thereof, shall be</mark> transported beyond the limits of this State for life, or be kept to hard labor, with occasional solitary confinement, for any period not exceeding fifteen years. Trial for</p></div>
+  </div>
+  <details><summary>The shared phrases</summary><p class="phrases">exceeding five years and if | is hereby authorized and required | not exceeding five years and | on conviction thereof shall be | or having left the state | ordered to leave the state | so ordered to leave the</p></details>
+</section>
+<section id="p4">
+  <h2>4. 5 shared phrases <span class="scores">share of slaveacts section
+  0.06 · Jaccard 0.04</span></h2>
+  <div class="pair">
+    <div class="side"><h3>sc_1831_act2528_s04</h3><p class="meta">1831</p>
+      <p class="text">IV. If any slave or free person of color shall hereafter commit any trespass, the commission of which by a white man would subject him to a civil action, and for which no penalty is already imposed by law on a slave or free person of color, such slave or free person of color thus trespassing, shall be adjudged guilty of a misdemeanor; and, on conviction thereof, shall <mark>be punished at the discretion of the court by</mark> which he is tried, not extending to life or member.</p></div>
+    <div class="side"><h3>sc_1865_act4731_s12</h3><p class="meta">1865-12-19 · Some Misdemeanors</p>
+      <p class="meta">An Act to amend the criminal law</p>
+      <p class="text">XII. Wliere no special punishment is provided for a misdemeanor, it shall, according to its nature and degree, <mark>be punished, at the discretion of the Court, by</mark> one or more of the modes of punishment which, in the fourth Section of this Act, have been enumerated for a felonv with benefit of clergy, except transpcrtation.</p></div>
+  </div>
+  <details><summary>The shared phrases</summary><p class="phrases">at the discretion of the | be punished at the discretion | discretion of the court by | punished at the discretion of | the discretion of the court</p></details>
+</section>
+<section id="p5">
+  <h2>5. 5 shared phrases <span class="scores">share of slaveacts section
+  0.05 · Jaccard 0.03</span></h2>
+  <div class="pair">
+    <div class="side"><h3>sc_1803_act1814_s03</h3><p class="meta">1803</p>
+      <p class="text">III. And be it further enacted by the authority aforesaid, That no male And also from slave above the age of fifteen years shall be imported or brought into this State, from any of our sister States, unless the person importing such negio, shall produce, and file <mark>in the office of the clerk of the district</mark> where the person so importing may reside, a certificate under the hands of two magistrates, and the seal of the court of the district where the said negro or negroes have resided for the last twelve months previous to the date of the certificate, that such negro or negroes are persons of good character, and have not been concerned in any insurrection or rebellion.</p></div>
+    <div class="side"><h3>sc_1865_act4733_s19</h3><p class="meta">1865-12-21 · Master And Apprentice</p>
+      <p class="meta">An Act to establish and regulate the domestic relations of persons of color, and to amend the law in relation to paupers and vagrancy</p>
+      <p class="text">XIX. When the apprentice is under these ages, and in all Compulsory cases of compulsory api)renticeship, where the infant refuses assent, his signature shall not be necessary to the validity of the apprenticeship. The master&#x27;s obligation of apprenticeship, in all cases of compulsory apprenticeship, and cases where the father or mother does not bind a child, shall be executed in the presence of the District Judge, or one of the Magistrates, certified by him, and filed <mark>in the office of the Clerk of the District</mark> Court.</p></div>
+  </div>
+  <details><summary>The shared phrases</summary><p class="phrases">in the office of the | of the clerk of the | office of the clerk of | the clerk of the district | the office of the clerk</p></details>
+</section>
+<section id="p6">
+  <h2>6. 5 shared phrases <span class="scores">share of slaveacts section
+  0.03 · Jaccard 0.02</span></h2>
+  <div class="pair">
+    <div class="side"><h3>sc_1801_act1756_s07</h3><p class="meta">1801</p>
+      <p class="text">VII. Ajid be it enacted by the authority aforesaid, That the keeper of every public ferry within this State, shall, within thirty days after the pub- Oath to be talication of this A.ci, take and subscribe the following oath, before some ius- r tice of the peace or quorum of the district whereiii the person required to ries. take such oath shall reside, and cause or procure such oath to be <mark>filed in the office of the clerk of the</mark> court of common pleas in such district ; that is to say : &quot;I, A B, do swear, (or affirm, as the case may be,) that I will, to the best of my ability, carry, and cause to be carried, into effect this Act, and an Act to prevent negro slaves and other persons of colour, from being brought into or entering this State.&quot; And every such person who shall neglect or refuse to take, and cause and procure to be filed, such oath or affirmation, as is hereinbefore directed, shall forfeit and pay the sum of one hundred dollars.</p></div>
+    <div class="side"><h3>sc_1865_act4733_s19</h3><p class="meta">1865-12-21 · Master And Apprentice</p>
+      <p class="meta">An Act to establish and regulate the domestic relations of persons of color, and to amend the law in relation to paupers and vagrancy</p>
+      <p class="text">XIX. When the apprentice is under these ages, and in all Compulsory cases of compulsory api)renticeship, where the infant refuses assent, his signature shall not be necessary to the validity of the apprenticeship. The master&#x27;s obligation of apprenticeship, in all cases of compulsory apprenticeship, and cases where the father or mother does not bind a child, shall be executed in the presence of the District Judge, or one of the Magistrates, certified by him, and <mark>filed in the office of the Clerk of the</mark> District Court.</p></div>
+  </div>
+  <details><summary>The shared phrases</summary><p class="phrases">filed in the office of | in the office of the | of the clerk of the | office of the clerk of | the office of the clerk</p></details>
+</section>
+<section id="p7">
+  <h2>7. 5 shared phrases <span class="scores">share of slaveacts section
+  0.03 · Jaccard 0.03</span></h2>
+  <div class="pair">
+    <div class="side"><h3>sc_1801_act1756_s07</h3><p class="meta">1801</p>
+      <p class="text">VII. Ajid be it enacted by the authority aforesaid, That the keeper of every public ferry within this State, shall, within thirty days after the pub- Oath to be talication of this A.ci, take and subscribe the following oath, before some ius- r tice of the peace or quorum of the district whereiii the person required to ries. take such oath shall reside, and cause or procure such oath to <mark>be filed in the office of the clerk of</mark> the court of common pleas in such district ; that is to say : &quot;I, A B, do swear, (or affirm, as the case may be,) that I will, to the best of my ability, carry, and cause to be carried, into effect this Act, and an Act to prevent negro slaves and other persons of colour, from being brought into or entering this State.&quot; And every such person who shall neglect or refuse to take, and cause and procure to be filed, such oath or affirmation, as is hereinbefore directed, shall forfeit and pay the sum of one hundred dollars.</p></div>
+    <div class="side"><h3>sc_1865_act4733_s28</h3><p class="meta">1865-12-21 · Master And Apprentice</p>
+      <p class="meta">An Act to establish and regulate the domestic relations of persons of color, and to amend the law in relation to paupers and vagrancy</p>
+      <p class="text">XXVIII. All orders made by a Magistrate touching the relation of master and apprentice shall <mark>be filed in the office of the Clerk of</mark></p></div>
+  </div>
+  <details><summary>The shared phrases</summary><p class="phrases">be filed in the office | filed in the office of | in the office of the | office of the clerk of | the office of the clerk</p></details>
+</section>
+<section id="p8">
+  <h2>8. 5 shared phrases <span class="scores">share of slaveacts section
+  0.01 · Jaccard 0.01</span></h2>
+  <div class="pair">
+    <div class="side"><h3>sc_1794_act1605_s01</h3><p class="meta">1794</p>
+      <p class="text"><span class="gap">[…]</span> slaves, mulattoes, Indians, Moors or mestizoes, bound.for a term of years, from any of the United States, by land or water,&quot; be, and the same is hereby, extended, until <mark>the first day of January, in the year</mark> of our Lord one thousand seven hundred and ninety-seven. IL And be it fur flier enacted by the authority aforesaid. That <mark>it shall not be lawful</mark>, at any time hereafter, for any slave or free negro, mulattoe or mestizoe, or other person of color, whether bond or free, to be imported or brought into this State <span class="gap">[…]</span></p></div>
+    <div class="side"><h3>sc_1865_act4733_s75</h3><p class="meta">1865-12-21 · Eviction Of &#x27;Persons Of Color</p>
+      <p class="meta">An Act to establish and regulate the domestic relations of persons of color, and to amend the law in relation to paupers and vagrancy</p>
+      <p class="text">LXXV. Where, upon any farm or lands, there now are persons of color, who were formerly the slaves of the owner, lessee or occuPreservation of good order. pant of the said farm or lands, who may have been there on the &#x27; tenth day of November, eighteen hundred and sixty-five, and have been on said lands for six months previous ; and who are helpless, either from old age, infancy, disease or other cause ; and who are unable, of themselves, and have no parent or other relative able to&#x27; maintain them, and to provide other homes or quarters, <mark>it shall not be lawful</mark> for the present, or any subsequent owner, lessee or occupant, before <mark>the first day of January, in the year</mark> eighteen hundred and sixty-seven, to evict or drive from the houses which now are, or hereafter shall be, lawfully occupied by such helpless persons of color, such helpless persons, or any of them, by rendering such houses uninhabitable, or by any other means ; and upon conviction having done so, every such owner, lessee, occupant, agent or other person, shall be fined not exceeding fifty dollars, nor less than five dollars, for each such person of color so evicted, and may be imprisoned, at the discretion of the Judge of the District Court, not exceeding one month.</p></div>
+  </div>
+  <details><summary>The shared phrases</summary><p class="phrases">day of january in the | first day of january in | it shall not be lawful | of january in the year | the first day of january</p></details>
+</section>
+<section id="p9">
+  <h2>9. 5 shared phrases <span class="scores">share of slaveacts section
+  0.01 · Jaccard 0.01</span></h2>
+  <div class="pair">
+    <div class="side"><h3>sc_1740_act670_s48</h3><p class="meta">1740</p>
+      <p class="text"><span class="gap">[…]</span> of the said public treasurer and warden of Acts relating to Slaves. the work house, for the taking, securing and keeping the said slave or slaves, as aforesaid; and then <mark>the surplus, (if any,) shall be paid to the</mark> respective owner or owners. And be it further enacted by the authority aforesaid, That from and after the passing of this Act, where any slave or slaves shall be tried <span class="gap">[…]</span></p></div>
+    <div class="side"><h3>sc_1865_act4732_s32</h3><p class="meta">1865-12-19</p>
+      <p class="meta">An Act to establish District Courts</p>
+      <p class="text"><span class="gap">[…]</span> a garnishee, before or after trial, shall be sold under the order of the Magistrate or Court, and the proceeds applied to the payment of the tax and costs, and <mark>the surplus, if any, shall be paid to the</mark> person of color. For goods eloigned or wasted after service of the summons the garnishee who had them in possession shall be made answerable. Like proceedings may be had upon <span class="gap">[…]</span></p></div>
+  </div>
+  <details><summary>The shared phrases</summary><p class="phrases">any shall be paid to | if any shall be paid | shall be paid to the | surplus if any shall be | the surplus if any shall</p></details>
+</section>
+</body></html>

@@ -1,0 +1,22 @@
+shingle,b_sections,in_a
+ shall be ,121,True
+ district ,102,True
+he distric,93,True
+ the distr,93,True
+e district,93,True
+the distri,93,True
+istrict co,64,False
+rict court,64,False
+trict cour,64,False
+district c,64,False
+strict cou,63,False
+magistrate,62,True
+ magistrat,62,True
+ict court ,60,False
+ of color ,53,True
+agistrate ,52,True
+district j,51,False
+rict judge,51,False
+istrict ju,51,False
+trict judg,51,False
+strict jud,51,False

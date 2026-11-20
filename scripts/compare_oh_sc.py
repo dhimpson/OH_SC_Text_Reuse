@@ -44,23 +44,45 @@ Changes from 02, and why:
      in common. A passage copied into a long section shares many phrases but
      only a small share of the section, so the share and Jaccard thresholds
      miss it. Pairs are sorted by the number of shared phrases, then share_a.
-  8. Optional: normalize racial terms (add "norm" to the command). The laws'
+  8. Optional: character shingles instead of word phrases (add "char" to the
+     command). As in 01_reuse_jaccard_by_hand.py, each section is lowercased,
+     stripped of punctuation and squeezed to single spaces, then cut into every
+     run of K characters (spaces included). One misread or respelled letter
+     ("he it" for "be it," "colour" for "color," "gaol") breaks every word phrase
+     that contains the word, but only the few shingles that overlap it, so
+     shingles tolerate OCR errors and spelling change. Short shingles match
+     everywhere, so K defaults to 10. Shared shingles only find candidate
+     pairs: a set of shingles does not record where each one came from, so it
+     cannot tell borrowed passages from scattered fragments. Each candidate is
+     therefore aligned with difflib (as in 04_reuse_trace_clause.py), which
+     finds the text the two sections share in the same order. Blocks shorter
+     than MIN_BLOCK characters (20, about 3-4 words) are ignored, so scattered
+     fragments ("hundred dollars") do not add up. A pair is kept when its
+     ordered shared text totals at least MIN_ALIGNED characters (100, about 17
+     words), and pairs are sorted by that total. The shared_phrases column
+     then holds the shared blocks in order, n_shared counts shingles,
+     aligned_shared gives the ordered shared text in characters, and
+     longest_shared the longest single block.
+  9. Optional: normalize racial terms (add "norm" to the command). The laws'
      different words for Black people ("black or mulatto person," "negro,"
      "colored," "person of color," ...) all become one token, RACETERM, before
      phrases are made, so the run tests for shared legal structure behind
      different vocabulary. "White" is left as it is.
 
 Usage, from the OH_SC_Text_Reuse folder. Name the corpora A then B; a number
-sets the phrase length (default 5); "norm" normalizes racial terms:
+sets the phrase length (default 5 words), or with "char" the shingle length
+(default 10 characters); "norm" normalizes racial terms:
     python3 scripts/compare_oh_sc.py                        # ohio vs. jimcrow
     python3 scripts/compare_oh_sc.py 5 blackcode            # ohio vs. blackcode
     python3 scripts/compare_oh_sc.py 5 blackcode jimcrow    # blackcode vs. jimcrow
     python3 scripts/compare_oh_sc.py 5 blackcode jimcrow norm
     python3 scripts/compare_oh_sc.py 5 slaveacts blackcode  # slave acts vs. blackcode
+    python3 scripts/compare_oh_sc.py char 10 slaveacts blackcode   # 10-character shingles
 
   With one corpus named, it is B and A is ohio. With none, A is ohio, B is jimcrow.
 
-Saves output/compare_n<N>[_norm][_<A>_vs_<B>].csv (every kept pair, best first)
+Saves output/compare_n<N>[_norm][_<A>_vs_<B>].csv (every kept pair, best first;
+"c<K>" in place of "n<N>" for character shingles)
 and the matching _boilerplate.csv. For ohio vs. jimcrow the file names have no
 corpus suffix, and for ohio vs. blackcode the suffix is "_blackcode", as before.
 
@@ -71,6 +93,7 @@ Code, such as "Contracts For Service"; blank for the other corpora.)
 """
 
 import csv
+import difflib
 import re
 import sys
 from collections import Counter, defaultdict
@@ -83,7 +106,10 @@ from common import jaccard, phrases, snippet
 CORPORA = {"ohio": "ohio_black_laws", "blackcode": "sc_black_code_1865",
            "jimcrow": "sc_jimcrow_1877-1920", "slaveacts": "sc_slave_acts_1690-1835"}
 ARGS = sys.argv[1:]
-N = next((int(a) for a in ARGS if a.isdigit()), 5)   # words per phrase
+CHAR = "char" in ARGS                                 # character shingles instead of words?
+_NUMBER = next((int(a) for a in ARGS if a.isdigit()), None)
+N = _NUMBER if _NUMBER and not CHAR else 5           # words per phrase
+K = _NUMBER if _NUMBER and CHAR else 10              # characters per shingle
 NORMALIZE = "norm" in ARGS                            # normalize racial terms?
 NAMED = [a for a in ARGS if a in CORPORA]
 if len(NAMED) >= 2:
@@ -94,7 +120,10 @@ else:
     A, B = "ohio", "jimcrow"
 MATCH = 0.10            # keep pairs with at least this Jaccard score...
 SHARE_A = 0.20          # ...or at least this share of the A section's phrases...
-MIN_SHARED = 5          # ...or at least this many shared phrases (after boilerplate)
+MIN_SHARED = 5          # ...or at least this many shared phrases (word phrases)
+MIN_ALIGNED = 100       # ...with shingles: or this many characters of shared text in the same order
+MIN_BLOCK = 20          # shared blocks shorter than this many characters (about 3-4 words) are ignored
+CANDIDATE_SHINGLES = 30 # with shingles: pairs sharing fewer shingles than this are not aligned
 MAX_B_SECTIONS = 50     # phrases in more B sections than this are boilerplate
 EXCLUDE_APPROPRIATIONS = True
 SHOW = 15               # pairs to print
@@ -159,6 +188,38 @@ def strip_enacting(text):
     return text
 
 
+def clean_chars(text):
+    """As clean() in 01_reuse_jaccard_by_hand.py: lowercase, drop punctuation,
+    squeeze runs of spaces to one."""
+    text = re.sub(r"[^\w\s]", "", text.lower())
+    return " ".join(text.split())
+
+
+def pieces(text):
+    """The units compared: N-word phrases, or K-character shingles. Shingles are
+    stored as Python hash numbers to save memory on the large Jim Crow corpus."""
+    if not CHAR:
+        return phrases(text, N)
+    c = clean_chars(text)
+    return {hash(c[i:i + K]) for i in range(len(c) - K + 1)}
+
+
+def shingle_sequence(clean):
+    """A cleaned section's shingles in order (as hash numbers)."""
+    return [hash(clean[k:k + K]) for k in range(len(clean) - K + 1)]
+
+
+def aligned_blocks(clean_a, seq_a, seq_b):
+    """With shingles: the text two sections share in the same order, as blocks
+    of at least MIN_BLOCK characters (difflib, as in 04_reuse_trace_clause.py).
+    difflib compares the sequences of shingles rather than of letters: a run of
+    m shingles that match in order is a shared passage m + K - 1 characters long,
+    and this is far faster than comparing letters, which repeat endlessly."""
+    matcher = difflib.SequenceMatcher(None, seq_a, seq_b, autojunk=False)
+    return [clean_a[m.a:m.a + m.size + K - 1].strip() for m in matcher.get_matching_blocks()
+            if m.size and m.size + K - 1 >= MIN_BLOCK]
+
+
 PROJECT = Path(__file__).resolve().parent.parent
 A_DIR = PROJECT / "data" / CORPORA[A]
 B_DIR = PROJECT / "data" / CORPORA[B]
@@ -213,14 +274,20 @@ def main():
 
     a = read_sections(A_DIR, a_skip)
     b = read_sections(B_DIR, b_skip)
+    UNIT = f"{K}-character shingles" if CHAR else f"{N}-word phrases"
     print(f"{A} ({CORPORA[A]}) vs. {B} ({CORPORA[B]})")
     print(f"{len(a):,} {A} sections, {len(b):,} {B} sections "
-          f"({len(a_skip) + len(b_skip)} appropriation acts left out), {N}-word phrases"
+          f"({len(a_skip) + len(b_skip)} appropriation acts left out), {UNIT}"
           + (", racial terms normalized" if NORMALIZE else ""))
 
     # 1. Chop every section into phrases
-    a_p = [phrases(s["compare"], N) for s in a]
-    b_p = [phrases(s["compare"], N) for s in b]
+    a_p = [pieces(s["compare"]) for s in a]
+    b_p = [pieces(s["compare"]) for s in b]
+
+    if CHAR:                   # cleaned texts, for aligning candidate pairs
+        a_clean = [clean_chars(s["compare"]) for s in a]
+        a_seq = [shingle_sequence(c) for c in a_clean]
+        b_seq = [shingle_sequence(clean_chars(s["compare"])) for s in b]
 
     # 2. Boilerplate: phrases in more than MAX_B_SECTIONS sections of B
     counts = Counter(p for ps in b_p for p in ps)
@@ -246,26 +313,44 @@ def main():
         for j in candidates:
             shared = o & b_p[j]
             score, share = jaccard(o, b_p[j]), len(shared) / len(o)
-            if score >= MATCH or share >= SHARE_A or len(shared) >= MIN_SHARED:
-                pairs.append((share, score, i, j, shared))
+            if CHAR:
+                if len(shared) < CANDIDATE_SHINGLES:
+                    continue
+                blocks = aligned_blocks(a_clean[i], a_seq[i], b_seq[j])
+                aligned = sum(len(x) for x in blocks)
+                keep = score >= MATCH or share >= SHARE_A or aligned >= MIN_ALIGNED
+            else:
+                blocks, aligned = sorted(shared), 0
+                keep = score >= MATCH or share >= SHARE_A or len(shared) >= MIN_SHARED
+            if keep:
+                pairs.append((share, score, i, j, shared, aligned, blocks))
 
-    # 4. Best first: by number of shared phrases, then share of the A section
-    pairs.sort(key=lambda x: (len(x[4]), x[0]), reverse=True)
-    print(f"{len(pairs):,} pairs kept (Jaccard >= {MATCH}, share of {A} section >= {SHARE_A}, "
-          f"or {MIN_SHARED}+ shared phrases)\n")
+    # 4. Best first: by number of shared phrases (or, with shingles, the longest
+    #    shared passage), then share of the A section
+    if CHAR:
+        pairs.sort(key=lambda x: (x[5], len(x[4])), reverse=True)
+        rule = f"or {MIN_ALIGNED}+ characters of shared text in order"
+    else:
+        pairs.sort(key=lambda x: (len(x[4]), x[0]), reverse=True)
+        rule = f"or {MIN_SHARED}+ shared phrases"
+    print(f"{len(pairs):,} pairs kept (Jaccard >= {MATCH}, share of {A} section >= {SHARE_A}, {rule})\n")
 
     def show(rows, heading):
         print(heading)
-        for share, score, i, j, shared in rows[:SHOW]:
+        for share, score, i, j, shared, aligned, passages in rows[:SHOW]:
             tags = b_meta.get(b[j]["doc_id"], {}).get("tags", "") or b_parts.get(b[j]["id"], "")
-            print(f"share of {A} {share:.2f}  jaccard {score:.2f}  {len(shared)} phrases "
-                  f"({sum(TOKEN in p for p in shared)} with {TOKEN})")
+            longest = f"{aligned} characters shared in order, " if CHAR else ""
+            print(f"share of {A} {share:.2f}  jaccard {score:.2f}  {longest}{len(shared)} "
+                  f"{'shingles' if CHAR else 'phrases'} ({sum(TOKEN in p for p in passages)} with {TOKEN})")
             print(f"   {a[i]['id']}  ->  {b[j]['id']}  [{tags}]")
-            print(f"   \"{snippet(a[i]['compare'], shared, N)} ...\"\n")
+            if CHAR:
+                print(f"   \"{' ... '.join(passages)[:200]} ...\"\n")
+            else:
+                print(f"   \"{snippet(a[i]['compare'], shared, N)} ...\"\n")
 
     show(pairs, "Best pairs overall:\n")
     if NORMALIZE:
-        show([x for x in pairs if any(TOKEN in p for p in x[4])],
+        show([x for x in pairs if any(TOKEN in p for p in x[6])],
              f"Best pairs sharing at least one phrase with {TOKEN}:\n")
 
     OUTPUT.mkdir(exist_ok=True)
@@ -275,28 +360,37 @@ def main():
         suffix = f"_{B}"
     else:
         suffix = f"_{A}_vs_{B}"
-    tag = f"n{N}" + ("_norm" if NORMALIZE else "") + suffix
+    tag = (f"c{K}" if CHAR else f"n{N}") + ("_norm" if NORMALIZE else "") + suffix
     path = OUTPUT / f"compare_{tag}.csv"
     with open(path, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        w.writerow(["share_a", "jaccard", "n_shared", "n_shared_racial",
+        w.writerow(["share_a", "jaccard", "n_shared", "n_shared_racial", "aligned_shared", "longest_shared",
                     "a_section", "a_date", "a_part",
                     "b_section", "b_date", "b_title", "b_county", "b_tags", "b_part",
                     "shared_phrases", "a_text", "b_text"])
-        for share, score, i, j, shared in pairs:
+        for share, score, i, j, shared, aligned, passages in pairs:
             m = b_meta.get(b[j]["doc_id"], {})
             w.writerow([round(share, 3), round(score, 3), len(shared),
-                        sum(TOKEN in p for p in shared),
+                        sum(TOKEN in p for p in passages), aligned if CHAR else "",
+                        max((len(x) for x in passages), default=0) if CHAR else "",
                         a[i]["id"], date(a_meta, a[i]["doc_id"]), a_parts.get(a[i]["id"], ""),
                         b[j]["id"], date(b_meta, b[j]["doc_id"]), m.get("title", ""),
                         m.get("county", ""), m.get("tags", ""), b_parts.get(b[j]["id"], ""),
-                        " | ".join(sorted(shared)), a[i]["text"].strip(), b[j]["text"].strip()])
+                        " | ".join(passages), a[i]["text"].strip(), b[j]["text"].strip()])
     bpath = OUTPUT / f"compare_{tag}_boilerplate.csv"
+    names = {}
+    if CHAR:                     # look up the text of each boilerplate shingle
+        for s in b:
+            c = clean_chars(s["compare"])
+            for k in range(len(c) - K + 1):
+                h = hash(c[k:k + K])
+                if h in boilerplate and h not in names:
+                    names[h] = c[k:k + K]
     with open(bpath, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        w.writerow(["phrase", "b_sections", "in_a"])
+        w.writerow(["shingle" if CHAR else "phrase", "b_sections", "in_a"])
         for p in sorted(boilerplate, key=lambda p: -counts[p]):
-            w.writerow([p, counts[p], p in hits])
+            w.writerow([names.get(p, p), counts[p], p in hits])
     print(f"Saved {path.relative_to(PROJECT)} and {bpath.relative_to(PROJECT)}")
 
 
