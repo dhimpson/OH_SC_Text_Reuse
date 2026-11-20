@@ -1,6 +1,6 @@
 # Ohio Black Laws and South Carolina Race Laws: A Text Reuse Project
 
-A pilot project that tests whether the wording of race laws traveled: from Ohio's antebellum Black Laws to South Carolina's Jim Crow acts, and through South Carolina's own legal history (slave and free-Black acts, the 1865 Black Code, and Jim Crow).
+While reading Kate Masur's book *Until Justice Be Done*, I was struck by the similarities between Ohio Black Laws from the early 1800s and South Carolina's Jim Crow laws from the 1890s to the 1950s. I decided to use text reuse to see if there was borrowing that could be documented between Ohio and South Carolina. I also traced the  wording of race laws through South Carolina's legal history (antebellem slave codes, the 1865 Black Codes, and Jim Crow legislation).
 
 The method compares laws section by section. It looks for shared 5-word phrases and for shared 10-character sequences ("shingles"), which hold up better against OCR errors. It is adapted from the 8510 text reuse tutorial and from Funk and Mullen, "The Spine of American Law" (*AHR*, 2018).
 
