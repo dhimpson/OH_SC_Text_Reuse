@@ -1,0 +1,185 @@
+section_id,doc_id,section,roman,part_heading,n_words
+sc_1865_act4730_s00,sc_1865_act4730,0,preamble,,99
+sc_1865_act4730_s01,sc_1865_act4730,1,I,,101
+sc_1865_act4730_s02,sc_1865_act4730,2,II,,53
+sc_1865_act4730_s03,sc_1865_act4730,3,III,,50
+sc_1865_act4730_s04,sc_1865_act4730,4,IV,,73
+sc_1865_act4730_s05,sc_1865_act4730,5,V,,46
+sc_1865_act4731_s00,sc_1865_act4731,0,preamble,,27
+sc_1865_act4731_s01,sc_1865_act4731,1,I,Some Felonies Without Benefit Of Clergy,385
+sc_1865_act4731_s03,sc_1865_act4731,3,III,Some Felonies With Benefit Of Clergy,529
+sc_1865_act4731_s04,sc_1865_act4731,4,IV,Some Felonies With Benefit Of Clergy,192
+sc_1865_act4731_s05,sc_1865_act4731,5,V,Some Misdemeanors,232
+sc_1865_act4731_s06,sc_1865_act4731,6,VI,Some Misdemeanors,44
+sc_1865_act4731_s07,sc_1865_act4731,7,VII,Some Misdemeanors,65
+sc_1865_act4731_s08,sc_1865_act4731,8,VIII,Some Misdemeanors,300
+sc_1865_act4731_s09,sc_1865_act4731,9,IX,Some Misdemeanors,182
+sc_1865_act4731_s10,sc_1865_act4731,10,X,Some Misdemeanors,189
+sc_1865_act4731_s11,sc_1865_act4731,11,XI,Some Misdemeanors,221
+sc_1865_act4731_s12,sc_1865_act4731,12,XII,Some Misdemeanors,55
+sc_1865_act4731_s13,sc_1865_act4731,13,XIII,Some Misdemeanors,173
+sc_1865_act4731_s14,sc_1865_act4731,14,XIV,Some Misdemeanors,119
+sc_1865_act4731_s15,sc_1865_act4731,15,XV,Some Misdemeanors,45
+sc_1865_act4731_s16,sc_1865_act4731,16,XVI,Some Misdemeanors,60
+sc_1865_act4731_s17,sc_1865_act4731,17,XVII,Some Misdemeanors,71
+sc_1865_act4731_s18,sc_1865_act4731,18,XVIII,Some Misdemeanors,105
+sc_1865_act4731_s19,sc_1865_act4731,19,XIX,Some Misdemeanors,51
+sc_1865_act4731_s20,sc_1865_act4731,20,XX,Some Misdemeanors,49
+sc_1865_act4731_s21,sc_1865_act4731,21,XXI,Some Misdemeanors,76
+sc_1865_act4731_s22,sc_1865_act4731,22,XXII,Some Misdemeanors,300
+sc_1865_act4731_s23,sc_1865_act4731,23,XXIII,Tending To All Courts,151
+sc_1865_act4731_s24,sc_1865_act4731,24,XXIV,Tending To All Courts,94
+sc_1865_act4731_s25,sc_1865_act4731,25,XXV,Tending To All Courts,185
+sc_1865_act4731_s26,sc_1865_act4731,26,XXVI,Tending To All Courts,69
+sc_1865_act4731_s27,sc_1865_act4731,27,XXVII,Tending To All Courts,180
+sc_1865_act4731_s28,sc_1865_act4731,28,XXVIII,Superintendent Of Convicts,205
+sc_1865_act4731_s29,sc_1865_act4731,29,XXIX,Arrest Of Offenders,68
+sc_1865_act4731_s30,sc_1865_act4731,30,XXX,Arrest Of Offenders,90
+sc_1865_act4731_s31,sc_1865_act4731,31,XXXI,Arrest Of Offenders,41
+sc_1865_act4731_s32,sc_1865_act4731,32,XXXII,Arrest Of Offenders,96
+sc_1865_act4732_s01,sc_1865_act4732,1,I,,88
+sc_1865_act4732_s02,sc_1865_act4732,2,II,,261
+sc_1865_act4732_s03,sc_1865_act4732,3,III,,59
+sc_1865_act4732_s04,sc_1865_act4732,4,IV,,121
+sc_1865_act4732_s05,sc_1865_act4732,5,V,,239
+sc_1865_act4732_s06,sc_1865_act4732,6,VI,,167
+sc_1865_act4732_s07,sc_1865_act4732,7,VII,,228
+sc_1865_act4732_s08,sc_1865_act4732,8,VIII,,103
+sc_1865_act4732_s09,sc_1865_act4732,9,IX,,73
+sc_1865_act4732_s10,sc_1865_act4732,10,X,,152
+sc_1865_act4732_s11,sc_1865_act4732,11,XI,,451
+sc_1865_act4732_s12,sc_1865_act4732,12,XII,,120
+sc_1865_act4732_s13,sc_1865_act4732,13,XIII,,47
+sc_1865_act4732_s14,sc_1865_act4732,14,XIV,,294
+sc_1865_act4732_s15,sc_1865_act4732,15,XV,,282
+sc_1865_act4732_s16,sc_1865_act4732,16,XVI,,143
+sc_1865_act4732_s17,sc_1865_act4732,17,XVII,,442
+sc_1865_act4732_s18,sc_1865_act4732,18,XVIII,,227
+sc_1865_act4732_s19,sc_1865_act4732,19,XIX,,65
+sc_1865_act4732_s20,sc_1865_act4732,20,XX,,129
+sc_1865_act4732_s21,sc_1865_act4732,21,XXI,,56
+sc_1865_act4732_s22,sc_1865_act4732,22,XXII,,147
+sc_1865_act4732_s23,sc_1865_act4732,23,XXIII,,57
+sc_1865_act4732_s24,sc_1865_act4732,24,XXIV,,148
+sc_1865_act4732_s25,sc_1865_act4732,25,XXV,,113
+sc_1865_act4732_s26,sc_1865_act4732,26,XXVI,,64
+sc_1865_act4732_s27,sc_1865_act4732,27,XXVII,,64
+sc_1865_act4732_s28,sc_1865_act4732,28,XXVIII,,981
+sc_1865_act4732_s29,sc_1865_act4732,29,XXIX,,51
+sc_1865_act4732_s30,sc_1865_act4732,30,XXX,,97
+sc_1865_act4732_s31,sc_1865_act4732,31,XXXI,,127
+sc_1865_act4732_s32,sc_1865_act4732,32,XXXII,,575
+sc_1865_act4732_s33,sc_1865_act4732,33,XXXIII,,302
+sc_1865_act4732_s34,sc_1865_act4732,34,XXXIV,,267
+sc_1865_act4732_s35,sc_1865_act4732,35,XXXV,,48
+sc_1865_act4732_s36,sc_1865_act4732,36,XXXVI,,139
+sc_1865_act4732_s37,sc_1865_act4732,37,XXXVII,,116
+sc_1865_act4732_s38,sc_1865_act4732,38,XXXVIII,,71
+sc_1865_act4732_s39,sc_1865_act4732,39,XXXIX,,131
+sc_1865_act4732_s41,sc_1865_act4732,41,XLI,Fees,67
+sc_1865_act4732_s42,sc_1865_act4732,42,XLII,Fees,119
+sc_1865_act4732_s43,sc_1865_act4732,43,XLIII,Fees,255
+sc_1865_act4732_s44,sc_1865_act4732,44,XLIV,Fees,242
+sc_1865_act4732_s45,sc_1865_act4732,45,XLV,Fees,188
+sc_1865_act4732_s46,sc_1865_act4732,46,XLVI,Fees,206
+sc_1865_act4732_s47,sc_1865_act4732,47,XLVII,Fees,297
+sc_1865_act4732_s48,sc_1865_act4732,48,XLVIII,Fees,64
+sc_1865_act4732_s49,sc_1865_act4732,49,XLIX,Fees,32
+sc_1865_act4733_s00,sc_1865_act4733,0,preamble,,27
+sc_1865_act4733_s01,sc_1865_act4733,1,I,Husband And Wife,14
+sc_1865_act4733_s02,sc_1865_act4733,2,II,Husband And Wife,15
+sc_1865_act4733_s03,sc_1865_act4733,3,III,Husband And Wife,93
+sc_1865_act4733_s05,sc_1865_act4733,5,V,Husband And Wife,20
+sc_1865_act4733_s06,sc_1865_act4733,6,VI,Husband And Wife,33
+sc_1865_act4733_s08,sc_1865_act4733,8,VIII,Husband And Wife,36
+sc_1865_act4733_s09,sc_1865_act4733,9,IX,Husband And Wife,18
+sc_1865_act4733_s10,sc_1865_act4733,10,X,Husband And Wife,271
+sc_1865_act4733_s11,sc_1865_act4733,11,XI,Husband And Wife,177
+sc_1865_act4733_s12,sc_1865_act4733,12,XII,Parent And Child,49
+sc_1865_act4733_s13,sc_1865_act4733,13,XIII,Parent And Child,29
+sc_1865_act4733_s14,sc_1865_act4733,14,XIV,Guardian And Ward,35
+sc_1865_act4733_s15,sc_1865_act4733,15,XV,Master And Apprentice,86
+sc_1865_act4733_s16,sc_1865_act4733,16,XVI,Master And Apprentice,14
+sc_1865_act4733_s17,sc_1865_act4733,17,XVII,Master And Apprentice,103
+sc_1865_act4733_s18,sc_1865_act4733,18,XVIII,Master And Apprentice,26
+sc_1865_act4733_s19,sc_1865_act4733,19,XIX,Master And Apprentice,86
+sc_1865_act4733_s20,sc_1865_act4733,20,XX,Master And Apprentice,32
+sc_1865_act4733_s21,sc_1865_act4733,21,XXI,Master And Apprentice,51
+sc_1865_act4733_s22,sc_1865_act4733,22,XXII,Master And Apprentice,114
+sc_1865_act4733_s23,sc_1865_act4733,23,XXIII,Master And Apprentice,31
+sc_1865_act4733_s24,sc_1865_act4733,24,XXIV,Master And Apprentice,98
+sc_1865_act4733_s25,sc_1865_act4733,25,XXV,Master And Apprentice,103
+sc_1865_act4733_s26,sc_1865_act4733,26,XXVI,Master And Apprentice,113
+sc_1865_act4733_s27,sc_1865_act4733,27,XXVII,Master And Apprentice,70
+sc_1865_act4733_s28,sc_1865_act4733,28,XXVIII,Master And Apprentice,24
+sc_1865_act4733_s29,sc_1865_act4733,29,XXIX,Master And Apprentice,28
+sc_1865_act4733_s30,sc_1865_act4733,30,XXX,Master And Apprentice,24
+sc_1865_act4733_s31,sc_1865_act4733,31,XXXI,Master And Apprentice,67
+sc_1865_act4733_s32,sc_1865_act4733,32,XXXII,Master And Apprentice,16
+sc_1865_act4733_s33,sc_1865_act4733,33,XXXIII,Master And Apprentice,140
+sc_1865_act4733_s34,sc_1865_act4733,34,XXXIV,Master And Apprentice,126
+sc_1865_act4733_s35,sc_1865_act4733,35,XXXV,Contracts For Service,29
+sc_1865_act4733_s36,sc_1865_act4733,36,XXXVI,Contracts For Service,35
+sc_1865_act4733_s37,sc_1865_act4733,37,XXXVII,Contracts For Service,30
+sc_1865_act4733_s38,sc_1865_act4733,38,XXXVIII,Contracts For Service,38
+sc_1865_act4733_s39,sc_1865_act4733,39,XXXIX,Contracts For Service,37
+sc_1865_act4733_s40,sc_1865_act4733,40,XL,Contracts For Service,20
+sc_1865_act4733_s41,sc_1865_act4733,41,XLI,Contracts For Service,19
+sc_1865_act4733_s42,sc_1865_act4733,42,XLII,Contracts For Service,29
+sc_1865_act4733_s43,sc_1865_act4733,43,XLIII,Contracts For Service,85
+sc_1865_act4733_s44,sc_1865_act4733,44,XLIV,Contracts For Service,164
+sc_1865_act4733_s45,sc_1865_act4733,45,XLV,Contracts For Service,128
+sc_1865_act4733_s46,sc_1865_act4733,46,XLVI,Contracts For Service,195
+sc_1865_act4733_s47,sc_1865_act4733,47,XLVII,Contracts For Service,108
+sc_1865_act4733_s48,sc_1865_act4733,48,XLVIII,Contracts For Service,30
+sc_1865_act4733_s49,sc_1865_act4733,49,XLIX,Contracts For Service,15
+sc_1865_act4733_s50,sc_1865_act4733,50,L,Rights Of Master As Between Himself And His Servant,96
+sc_1865_act4733_s51,sc_1865_act4733,51,LI,Causes Of Discharge Of A Servant,59
+sc_1865_act4733_s52,sc_1865_act4733,52,LII,Causes Of Discharge Of A Servant,103
+sc_1865_act4733_s53,sc_1865_act4733,53,LIII,Causes Of Discharge Of A Servant,40
+sc_1865_act4733_s54,sc_1865_act4733,54,LIV,Rights Of Master As To Third Persons,134
+sc_1865_act4733_s55,sc_1865_act4733,55,LV,Rights Of Master As To Third Persons,94
+sc_1865_act4733_s56,sc_1865_act4733,56,LVI,Rights Of Master As To Third Persons,49
+sc_1865_act4733_s57,sc_1865_act4733,57,LVII,Rights Of Master As To Third Persons,22
+sc_1865_act4733_s58,sc_1865_act4733,58,LVIII,Rights Of Master As To Third Persons,60
+sc_1865_act4733_s59,sc_1865_act4733,59,LIX,Rights Of Master As To Third Persons,50
+sc_1865_act4733_s60,sc_1865_act4733,60,LX,Rights Of Master As To Third Persons,139
+sc_1865_act4733_s61,sc_1865_act4733,61,LXI,Rights Of Servant As Between Himself And Master,100
+sc_1865_act4733_s62,sc_1865_act4733,62,LXII,Rights Of Servant As Between Himself And Master,118
+sc_1865_act4733_s63,sc_1865_act4733,63,LXIII,Rights Of Servant As Between Himself And Master,38
+sc_1865_act4733_s64,sc_1865_act4733,64,LXIV,Rights Of Servant As Between Himself And Master,40
+sc_1865_act4733_s65,sc_1865_act4733,65,LXV,Mutual Rights Of Master And Servant,189
+sc_1865_act4733_s66,sc_1865_act4733,66,LXVI,Rights Of Servants As To Third Persons,17
+sc_1865_act4733_s67,sc_1865_act4733,67,LXVII,Rights Of Servants As To Third Persons,60
+sc_1865_act4733_s68,sc_1865_act4733,68,LXVIII,House Servants And Others Not In Husbandry,33
+sc_1865_act4733_s69,sc_1865_act4733,69,LXIX,House Servants And Others Not In Husbandry,62
+sc_1865_act4733_s70,sc_1865_act4733,70,LXX,House Servants And Others Not In Husbandry,31
+sc_1865_act4733_s71,sc_1865_act4733,71,LXXI,For All Servants,187
+sc_1865_act4733_s72,sc_1865_act4733,72,LXXII,"Mechanics, Artisans And Shopkeepers",226
+sc_1865_act4733_s73,sc_1865_act4733,73,LXXIII,"Mechanics, Artisans And Shopkeepers",51
+sc_1865_act4733_s74,sc_1865_act4733,74,LXXIV,"Mechanics, Artisans And Shopkeepers",43
+sc_1865_act4733_s75,sc_1865_act4733,75,LXXV,Eviction Of 'Persons Of Color,220
+sc_1865_act4733_s76,sc_1865_act4733,76,LXXVI,Eviction Of 'Persons Of Color,153
+sc_1865_act4733_s77,sc_1865_act4733,77,LXXVII,Eviction Of 'Persons Of Color,104
+sc_1865_act4733_s78,sc_1865_act4733,78,LXXVIII,Eviction Of 'Persons Of Color,79
+sc_1865_act4733_s79,sc_1865_act4733,79,LXXIX,Eviction Of 'Persons Of Color,113
+sc_1865_act4733_s80,sc_1865_act4733,80,LXXX,Eviction Of 'Persons Of Color,21
+sc_1865_act4733_s81,sc_1865_act4733,81,LXXXI,Paupers,95
+sc_1865_act4733_s82,sc_1865_act4733,82,LXXXII,Paupers,89
+sc_1865_act4733_s83,sc_1865_act4733,83,LXXXIII,Paupers,72
+sc_1865_act4733_s84,sc_1865_act4733,84,LXXXIV,Paupers,54
+sc_1865_act4733_s85,sc_1865_act4733,85,LXXXV,Paupers,89
+sc_1865_act4733_s86,sc_1865_act4733,86,LXXXVI,Paupers,154
+sc_1865_act4733_s87,sc_1865_act4733,87,LXXXVII,Paupers,127
+sc_1865_act4733_s88,sc_1865_act4733,88,LXXXVIII,Paupers,200
+sc_1865_act4733_s89,sc_1865_act4733,89,LXXXIX,Paupers,141
+sc_1865_act4733_s90,sc_1865_act4733,90,XC,Paupers,277
+sc_1865_act4733_s91,sc_1865_act4733,91,XCI,Paupers,247
+sc_1865_act4733_s92,sc_1865_act4733,92,XCII,Paupers,119
+sc_1865_act4733_s93,sc_1865_act4733,93,XCIII,Paupers,144
+sc_1865_act4733_s94,sc_1865_act4733,94,XCIV,Paupers,118
+sc_1865_act4733_s95,sc_1865_act4733,95,XCV,Vagrancy And Idleness,7
+sc_1865_act4733_s96,sc_1865_act4733,96,XCVI,Vagrancy And Idleness,229
+sc_1865_act4733_s97,sc_1865_act4733,97,XCVII,Vagrancy And Idleness,132
+sc_1865_act4733_s98,sc_1865_act4733,98,XCVIII,Vagrancy And Idleness,104
+sc_1865_act4733_s99,sc_1865_act4733,99,XCIX,Vagrancy And Idleness,25

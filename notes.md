@@ -139,3 +139,69 @@ Both scripts use only the Python standard library. Running them writes into the 
 - The corpora differ in size by a factor of roughly 250 (about 4,150 Ohio words vs. 1.07 million SC words). Compare each Ohio section against the SC sections rather than whole documents.
 - Racial vocabulary shifts across the period ("black or mulatto person" → "negro," "colored," "person of African descent"). Exact n-gram matching will miss conceptual reuse that uses different terms; consider normalizing racial terms to a single token as an alternate run, and report both.
 - Strip or discount common enacting and legal boilerplate ("be it enacted," "be it further enacted," "any person or persons") so matches reflect substantive language.
+
+# Notes on Runs:
+## First run on compare_oh_sc.py
+
+# 35 Ohio sections, 4,079 SC sections (48 appropriation acts left out), 5-word phrases
+249 boilerplate phrases ignored (37 of them also occur in the Ohio laws)
+2 pairs kept (Jaccard >= 0.1 or Ohio share >= 0.2)
+
+ohio share 0.36  jaccard 0.00  4 phrases
+   ohio_1864_school_sec31_amended_s01  ->  sc_1900_act188_s01  [Amendments, Judicial]
+   "be so amended as to read as follows ..."
+
+ohio share 0.14  jaccard 0.13  7 phrases
+   ohio_1807_amend_regulate_s05  ->  sc_1879_act110_s02  [Fence Laws]
+   "act shall take effect and be in force from and after the first day of april next ..."
+# this run did not prove text reuse. I decided to have Claude assist with normalizing the racial terms within the data sets from both states and then rerun. This will remove vocbulary differences between the two states (regarding racial terms only), replace such instances with a single token word, raceterm, and then allow for a cleaner comparison in how the states built laws. 
+
+#results of the first rerun with racenormalizing (compare_oh_sc.py 5 norm)
+
+35 Ohio sections, 4,079 SC sections (48 appropriation acts left out), 5-word phrases, racial terms normalized
+249 boilerplate phrases ignored (37 of them also occur in the Ohio laws)
+3 pairs kept (Jaccard >= 0.1 or Ohio share >= 0.2)
+
+Best pairs overall:
+
+ohio share 0.36  jaccard 0.00  4 phrases (0 with raceterm)
+   ohio_1864_school_sec31_amended_s01  ->  sc_1900_act188_s01  [Amendments, Judicial]
+   "be so amended as to read as follows ..."
+
+   ohio share 0.15  jaccard 0.14  7 phrases (0 with raceterm)
+   ohio_1807_amend_regulate_s05  ->  sc_1879_act110_s02  [Fence Laws]
+   "act shall take effect and be in force from and after the first day of april next ..."
+
+ohio share 0.12  jaccard 0.10  6 phrases (0 with raceterm)
+   ohio_1807_amend_regulate_s05  ->  sc_1892_act216_s03  [Fence Laws, Stock Laws]
+   "act shall take effect and be in force from and after the first day of april next ..."
+
+Best pairs sharing at least one phrase with raceterm:
+
+Saved output/compare_n5_norm.csv and output/compare_n5_norm_boilerplate.csv
+35 Ohio sections, 4,079 SC sections (48 appropriation acts left out), 4-word phrases, racial terms normalized
+478 boilerplate phrases ignored (80 of them also occur in the Ohio laws)
+4 pairs kept (Jaccard >= 0.1 or Ohio share >= 0.2)
+
+Best pairs overall:
+
+ohio share 0.36  jaccard 0.00  4 phrases (0 with raceterm)
+   ohio_1864_school_sec31_amended_s01  ->  sc_1900_act188_s01  [Amendments, Judicial]
+   "be so amended as to read as follows ..."
+
+ohio share 0.18  jaccard 0.12  2 phrases (0 with raceterm)
+   ohio_1864_school_sec31_amended_s01  ->  sc_1890_act614_s04  [education]
+   "of said act be so amended as to read as follows ..."
+
+ohio share 0.18  jaccard 0.12  2 phrases (0 with raceterm)
+   ohio_1864_school_sec31_amended_s01  ->  sc_1894_act598_s03  [education]
+   "of said act be so amended as to read as follows ..."
+
+ohio share 0.16  jaccard 0.15  7 phrases (0 with raceterm)
+   ohio_1807_amend_regulate_s05  ->  sc_1879_act110_s02  [Fence Laws]
+   "shall take effect and be in force from and after the first day of april next ..."
+
+Best pairs sharing at least one phrase with raceterm:
+# It looks like the only sharing is legal languge. 
+
+# A lack of viable text reuse results led me to try something else: Compare the 1804/1807 OH Black Code Corpus to a corpus of SC Black Codes from 1865. Did southern Black Codes borrow from Northern post-slavery Black Codes? 
