@@ -1,0 +1,44 @@
+shingle,b_sections,in_a
+ of the ,122,True
+shall be,121,True
+hall be ,121,True
+ shall b,121,True
+ distric,102,True
+district,102,True
+istrict ,102,True
+ the dis,102,True
+the dist,94,True
+e distri,93,True
+he distr,93,True
+e shall ,79,True
+ in the ,72,True
+ person ,70,True
+ to the ,70,True
+ by the ,70,True
+t shall ,68,True
+trict co,65,False
+rict cou,64,False
+strict c,64,False
+ct court,64,True
+ict cour,64,False
+ magistr,63,True
+agistrat,63,True
+gistrate,63,True
+magistra,62,True
+t court ,60,True
+e of the,59,True
+tion of ,58,True
+ of colo,56,True
+of color,56,True
+ may be ,56,True
+f color ,54,True
+ persons,52,True
+persons ,52,True
+ servant,52,True
+istrate ,52,True
+of the d,52,True
+rict jud,51,False
+ict judg,51,False
+ct judge,51,True
+trict ju,51,False
+strict j,51,False
