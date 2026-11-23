@@ -1,6 +1,6 @@
 # OH\_SC Text Reuse: Method Log
 
-Nov 20, 2026 · Dori Impson
+Updated Nov 22, 2026 · Dori Impson
 
 ## Purpose
 
@@ -74,6 +74,7 @@ The project moved in four stages, newest first: building the antebellum SC corpu
 
 | Date | Step | Decision or result |
 | --- | --- | --- |
+| Nov. 22 | Shingle window tested at K=8 and K=15 (slave acts vs. Black Code; Ohio vs. Black Code) | Both findings hold at every window; K=10 kept as default (see Results) |
 | Nov. 20 | Ohio vs. SC Jim Crow with shingles (`char 10`) | 17 pairs, all legal and school-administration formulas; confirms the word-phrase result |
 | Nov. 20 | Shingle mode corrected with ordered alignment | Slave acts vs. Black Code: 4 pairs, all migration provisions → Sec. XXII; Ohio vs. Black Code: 0 |
 | Nov. 20 | Ohio vs. Black Code rerun with shingles | Exposed that the first shingle version overstated matches (see Corrections) |
@@ -119,6 +120,15 @@ The changes are telling: "free negro or person of color" becomes "person of colo
 
 **Shingles confirm the Ohio–Jim Crow result.** With 10-character shingles, Ohio vs. SC Jim Crow keeps 17 pairs, none with racial wording. The Ohio school laws (1848, 1853, 1864) match SC school and tax acts on "are hereby authorized and required to" and "board of education"; Ohio 1807 matches SC magistrate acts on "the clerk of the court of common pleas." Two methods give the same answer, so the absence of borrowing does not depend on the method.
 
+**The findings do not depend on the shingle window.** Both key comparisons were rerun at windows of 8 and 15 characters (Nov. 22), with all other settings unchanged:
+
+| Comparison | K=8 | K=10 | K=15 |
+| --- | --- | --- | --- |
+| SC slave acts → Black Code | 11 pairs (same top 4; 7 short formulas added) | 4 pairs | 4 pairs |
+| Ohio → Black Code | 3 weak pairs (none ≥ 100 characters in order) | 0 pairs | 0 pairs |
+
+The same four sources (1835, 1823, 1820, 1835 Sec. 3) lead at every window, sharing the same ordered text with Sec. XXII (256, 239, 140, 112 characters). The 7 pairs added at K=8 are short formulas ("it shall be the duty of the," "the general assembly"); two share no ordered text at all. The 3 Ohio pairs at K=8 are the bond fragments already found by reading ("within twenty days," "unable to support") and generic formulas. K=10 was kept as the default: a smaller window adds only noise, a larger one adds nothing.
+
 **The method detects reuse where it exists.** Ohio's 1853 school section and its 1864 amendment score Jaccard 0.31, with 57% of the 1853 phrases carried over, so empty results are meaningful.
 
 ## Corrections and limitations
@@ -137,12 +147,14 @@ The changes are telling: "free negro or person of color" becomes "person of colo
 - **Ohio texts are a secondary print.** Arnett's 1886 reprints, not the session-law volumes; quotations need checking against the originals. Arnett omits the 1831 juries act, the 1834 amendment and the militia exclusion.
 - **1802 Ohio clause unverified.** Arnett says the convention passed it; it may not be in the adopted constitution.
 - **Exact methods miss paraphrase.** Word n-grams and shingles detect shared wording; the Ohio–SC bond parallel is visible only by reading or by a meaning-based method.
-- **Thresholds are judgment calls.** 50-section boilerplate cutoff, 0.10 / 0.20 / 5-phrase rules, 20-character blocks and 100-character totals were set by inspecting results; a write-up should report them and, ideally, show results at a second setting.
+- **Thresholds are judgment calls.** 50-section boilerplate cutoff, 0.10 / 0.20 / 5-phrase rules, 20-character blocks and 100-character totals were set by inspecting results; a write-up should report them. The shingle window has been tested at a second and third setting (K=8, 15; see Results); the other thresholds have not.
+- **The share rule overrides alignment at small windows.** At K=8, pairs with share ≥ 0.20 were kept even with little or no ordered shared text, because 8-character strings are so common. This does not affect K=10 results, but any future small-window run should apply the 100-character alignment rule to every pair kept.
 
 ## Next steps
 
 - [ ] Fix racial normalization for "colour" / "coloured," then run `norm` comparisons on the slave acts
 - [x] Run the remaining shingle comparison: Ohio vs. SC Jim Crow (`char 10`)
+- [x] Test the shingle window at K=8 and K=15
 - [ ] Rerun or delete the outdated `compare_n5_norm.csv` and `compare_n4_norm.csv`
 - [ ] Read the top pairs of each comparison in the viewer and record judgments (borrowing, common source, or formula)
 - [ ] Check the 1807 / Sec. XXII and 1823 / Sec. XXII quotations against the printed volumes
