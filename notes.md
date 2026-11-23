@@ -205,3 +205,5 @@ Best pairs sharing at least one phrase with raceterm:
 # It looks like the only sharing is legal languge. 
 
 # A lack of viable text reuse results led me to try something else: Compare the 1804/1807 OH Black Code Corpus to a corpus of SC Black Codes from 1865. Did southern Black Codes borrow from Northern post-slavery Black Codes? 
+
+## please follow methods log for more changes.
